@@ -3,8 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "i18n": {
+    "I18N": {
       "projectType": "application",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ml": {
+            "translation": "src/locale/messages.ml.xlf",
+            "baseHref": ""
+          },
+          "ka": {
+            "translation": "src/locale/messages.ka.xlf",
+            "baseHref": ""
+          },
+          "tl": {
+            "translation": "src/locale/messages.tl.xlf",
+            "baseHref": ""
+          },
+          "tm": {
+            "translation": "src/locale/messages.tm.xlf",
+            "baseHref": ""
+          },
+          "hi": {
+            "translation": "src/locale/messages.hi.xlf",
+            "baseHref": ""
+          },
+          "as": {
+            "translation": "src/locale/messages.as.xlf",
+            "baseHref": ""
+          }
+        }
+      },
       "schematics": {
         "@schematics/angular:class": {
           "skipTests": true
@@ -37,8 +66,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
+         
           "options": {
-            "outputPath": "dist/i18n",
+            "outputPath": "dist/I18N-example",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -70,6 +100,36 @@
               ],
               "outputHashing": "all"
             },
+            "fr": {
+              "localize": ["fr"],
+              "outputPath": "dist/under-construction-fr/",
+              "i18nMissingTranslation": "error"
+            },
+            "ka": {
+              "localize": ["ka"],
+              "outputPath": "dist/under-construction-ka/",
+              "i18nMissingTranslation": "error"
+            },
+            "te": {
+              "localize": ["te"],
+              "outputPath": "dist/under-construction-te/",
+              "i18nMissingTranslation": "error"
+            },
+            "tm": {
+              "localize": ["tm"],
+              "outputPath": "dist/under-construction-tm/",
+              "i18nMissingTranslation": "error"
+            },
+            "hi": {
+              "localize": ["hi"],
+              "outputPath": "dist/under-construction-hi/",
+              "i18nMissingTranslation": "error"
+            },
+            "as": {
+              "localize": ["as"],
+              "outputPath": "dist/under-construction-as/",
+              "i18nMissingTranslation": "error"
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -85,10 +145,29 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "i18n:build:production"
+              "browserTarget": "I18N:build:production"
             },
+            "fr": {
+              "browserTarget": "I18N:build:fr"
+            },
+            "te": {
+              "browserTarget": "I18N:build:te"
+            },
+            "ka": {
+              "browserTarget": "I18N:build:ka"
+            },
+            "tm": {
+              "browserTarget": "I18N:build:tm"
+            },
+            "hi": {
+              "browserTarget": "I18N:build:hi"
+            },
+            "as": {
+              "browserTarget": "I18N:build:as"
+            }
+            ,
             "development": {
-              "browserTarget": "i18n:build:development"
+              "browserTarget": "I18N:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +175,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "i18n:build"
+            "browserTarget": "I18N:build"
           }
         },
         "test": {
@@ -119,5 +198,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
